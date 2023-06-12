@@ -12,6 +12,10 @@ grouped_name = yelp_business.groupby(['name','review_count']).size().reset_index
 sorted_list = grouped_name.sort_values('review_count', ascending = False)
 sorted_list.head()
 
+# select only desired column
+sorted_list = sorted_list[['name','review_count']]
+sorted_list.head()
+
 Penjelasan:
 yelp_business = dataframe
 grouped_name = variable untuk groupby
