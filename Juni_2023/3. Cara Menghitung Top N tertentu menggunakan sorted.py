@@ -41,3 +41,17 @@ ya_group = yb_group[yb_group['stars'] == 5].sort_values('n_business', ascending 
 # select only desired column
 ya_selected = ya_group[['state','n_business']]
 ya_selected.head(6)
+
+3. Find the most profitable company in the financial sector of the entire world along with its continent
+# Start writing code
+forbes_global_2010_2014.head()
+
+# group by
+forbes_group = forbes_global_2010_2014.groupby(['company','continent','profits']).size().reset_index(name = "count")
+
+# reorder by highest profit
+reorder_forbes = forbes_group.sort_values("profits", ascending = False)
+
+# select some column only
+final_forbes = reorder_forbes[['company','continent']]
+final_forbes.head(1)
