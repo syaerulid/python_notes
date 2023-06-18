@@ -1,4 +1,4 @@
-Count the number of cancelled flights by American Airlines (AA).
+1. Count the number of cancelled flights by American Airlines (AA).
 
 # Import your libraries
 import pandas as pd
@@ -21,3 +21,32 @@ Penjelasan :
   groupby_df = groupping
   AA_df = filtering condition menggunakan bitwise operator & / AND
   .sum() = menjumlah berapa banyak yang memenuhi kondisi tersebut
+  
+
+2. Win-to-Nomination Ratio
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+oscar_nominees.head()
+
+# df
+df = oscar_nominees
+# convert boolean winner to int
+df['winner'] = df['winner'].astype('int')
+
+# groupby
+group_winner = df.groupby(['nominee','winner']).size().reset_index(name = "n_count")
+
+agg_data = group_winner.groupby('nominee').agg({'n_count': 'sum', 'winner': 'max'}).reset_index()
+agg_data
+
+# create new column name win_to_n_ratio
+agg_data['win_to_n_ratio'] = agg_data['winner'] / agg_data['n_count']
+agg_data
+
+# sorted the column
+agg_data.sort_values('win_to_n_ratio', ascending = False)
+
+Penjelasannya nanti : wkwkwk
+
