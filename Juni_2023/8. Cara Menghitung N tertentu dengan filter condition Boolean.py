@@ -48,7 +48,7 @@ agg_data
 # sorted the column
 agg_data.sort_values('win_to_n_ratio', ascending = False)
 
-Penjelasannya nanti : 
+Penjelasan:
   df = nama variable dataframe
   astype = mengubah type data column, tapi untuk yang simple, jika rumit menggunakan pd.to
   group_by = grouping data
