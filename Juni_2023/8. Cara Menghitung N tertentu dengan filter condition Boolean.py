@@ -53,7 +53,8 @@ Penjelasan:
   astype = mengubah type data column, tapi untuk yang simple, jika rumit menggunakan pd.to
   group_by = grouping data
   .agg = aggregation data, jadi n_count dijumlah semua, baik itu mereka dinominasikan winner atau tidak menggunakan n_count : sum
-    winner : max, dengan menggunakan max, kita melihat maximal value dari winner, karena winner ini boolean, dan apabila nominee pernah berstatus winner == 1 / True, maka hasil max akan menunjukan 1
-      selengkapnya buka dokumentasi official pandas: https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html
+  winner : max, dengan menggunakan max, kita melihat maximal value dari winner, 
+  karena winner ini boolean, dan apabila nominee pernah berstatus winner == 1 / True, maka hasil max akan menunjukan 1
+selengkapnya buka dokumentasi official pandas: https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html
   selebihnya sudah pernah dibahas dan cukup jelas
 
