@@ -16,3 +16,5 @@ rank_1 = df[df['position'] == 1]
 grup = rank_1.groupby(['trackname']).size().reset_index(name = 'times_top1')
 
 sorting = grup.sort_values('times_top1', ascending = False)
+
+Penjelasan Nanti : 
