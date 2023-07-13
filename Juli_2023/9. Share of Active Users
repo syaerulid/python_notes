@@ -1,0 +1,30 @@
+9. Share of Active Users
+
+Output share of US users that are active. Active users are the ones with an "open" status in the table.
+
+DataFrame: fb_active_users
+Expected Output Type: pandas.DataFrame
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+fb_active_users.head()
+df = fb_active_users.copy()
+df.head()
+
+# filter condition country and open
+df_filter = df[df['country'] == 'USA']
+
+# count df open
+df_filter_open = df_filter[df_filter['status'] == 'open']
+
+# count of open
+open_df = df_filter_open.groupby(['status']).size().sum()
+# count all status
+all_df = df_filter.groupby(['status']).size().sum()
+
+# open / all
+df['open'] = open_df / all_df
+
+Penjelasan nanti :
