@@ -1,0 +1,26 @@
+Bikes Last Used
+
+Find the last time each bike was in use. Output both the bike number and the date-timestamp of the bike's last use (i.e., the date-time the bike was returned). 
+Order the results by bikes that were most recently used.
+
+DataFrame: dc_bikeshare_q1_2012
+Expected Output Type: pandas.DataFrame
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+dc_bikeshare_q1_2012.head()
+df = dc_bikeshare_q1_2012.copy()
+df.head()
+
+# group by
+df_g = df.groupby(['bike_number','end_time']).size().reset_index()
+
+# group by max
+df_ge = df_g.groupby(['bike_number']).agg({'end_time' : 'max'}).reset_index()
+df_ge.drop_duplicates()
+
+Penjelasan :
+nanti
+
