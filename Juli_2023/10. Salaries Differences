@@ -1,0 +1,50 @@
+Salaries Differences
+
+Write a query that calculates the difference between the highest salaries found in the marketing and engineering departments. Output just the absolute difference in salaries.
+
+DataFrames: db_employee, db_dept
+Expected Output Type: pandas.DataFrame
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+db_employee.head()
+df1 = db_employee.copy()
+df1.head()
+
+db_dept.head()
+df2 = db_dept.copy()
+df2.head()
+
+# merge
+merged = df1.merge(df2, how = 'left', left_on = 'department_id', right_on = 'id')
+
+# filter marketing and engineering only
+mer_fil = merged[(merged['department'] == 'marketing') | (merged['department'] == 'engineering')]
+# groupby
+grup = mer_fil.groupby(['department','salary']).size().reset_index(name = "count")
+
+# grup cari max engineering
+engineering = grup[grup['department'] == 'engineering']
+top_1_eng = engineering.sort_values('salary', ascending = False)
+# display highest salary only
+top_1_eng = top_1_eng[['salary']].head(1)
+
+top_1_eng
+
+# grup cari max marketing
+marketing = grup[grup['department'] == 'marketing']
+top_1_mar = marketing.sort_values('salary', ascending = False)
+# display highest salary only
+top_1_mar = top_1_mar[['salary']].head(1)
+top_1_mar
+
+# concat
+df_baru = pd.concat([top_1_eng, top_1_mar], ignore_index = True)
+maximum = df_baru.max(axis = 0)
+minimum = df_baru.min(axis = 0)
+
+df_baru['salary_difference'] = maximum - minimum
+
+Penjelasan nanti :
